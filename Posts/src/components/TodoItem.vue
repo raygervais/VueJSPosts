@@ -1,17 +1,24 @@
 <template>
     <div 
-        class="todo-item" 
+        class="todo-item row" 
         v-bind:class="{'is-complete': todo.completed}">
+
+        <div class="column column-10">
+            <button 
+                @click="markComplete"
+                class="button-outline button-small mark">&#10004;</button>
+        </div>
         
-        <input 
-            type="checkbox" 
-            v-on:change="markComplete">
+        <div class="column column-80">
+            <p>{{todo.title}}</p>
+        </div> 
 
-        {{todo.title}}
-
-        <button 
-            @click="$emit('del-todo', todo.id)"
-            class="del">X</button>
+        <div class="column column-10">
+            <button 
+                @click="$emit('del-todo', todo.id)"
+                class="button-outline button-small del">X</button>    
+        </div>
+        
     </div>
 </template>
 
@@ -21,29 +28,68 @@ export default {
     props: ["todo"],
     methods: {
         markComplete() {
-            this.todo.completed = true;
+            this.todo.completed = !this.todo.completed;
         }
     }
 }
 </script>
 
 <style>
-.todo-item {
-    padding: 8px 16px;
-    background: #f4f4f4;
-    border-bottom: 1px dotted #ccc;
-    margin: auto;
+
+p {
+    overflow-wrap: break-word;
+    padding: auto;
+    margin-top: 2px;
+    text-transform: capitalize;
 }
+
+.button-outline.del {
+    border-radius: 1rem;
+    border-color: #AF3E4D;
+    transition: all 750ms
+}
+
+.button-outline.del:hover {
+    border-color: rgb(117, 41, 52);
+    background: #AF3E4D;
+    color: #ffffff;
+    border-radius: 2em;
+}
+
+.button-outline.mark,
+.button-outline.mark:focus{
+    border-color: #165f58;
+    color: #ffffff;
+    background: #69A2B0;
+    transition: all 750ms;
+    font-weight: bolder;
+        border-top-right-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+}
+
+.button-outline.mark:hover,
+.is-complete .button-outline.mark:hover {
+    background: #165f58;
+    border-top-right-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+    color: #fff;
+}
+
+.button-small {
+  font-size: .8rem;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  padding: 0 1.5rem;
+}
+
 
 .is-complete {
     text-decoration: line-through;
 }
 
-.del {
-    float: right;
-    border-radius: 24px;
-    border: solid 1px #AAA;
-    background: #FFF;
+.is-complete .button-outline.mark {
+    background: rgba(94, 101, 114, 0.603);
+    border-color: rgba(94, 101, 114, 0.603);
 }
 </style>
 

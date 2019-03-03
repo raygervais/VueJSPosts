@@ -1,9 +1,8 @@
 <template>
-    <header class="header">
-        <h1>TodoList</h1>
+    <header class="container header">
+        <h1>Todos for Vue</h1>
         <div id="nav">
-            <router-link to="/">Home</router-link> 
-            | 
+            <router-link to="/home">Home</router-link> 
             <router-link to="/about">About</router-link>
         </div>
     </header>
@@ -16,17 +15,20 @@
 </script>
 
 <style scoped>
-    .header {
-        background: #333;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
+    .header a {
+        padding: 5px 10px;
+        text-decoration: none;
+        color: #69A2B0;
+        transition: all 250ms;
     }
 
-    .header a {
-        color: #fff;
-        padding-right: 5px;
-        text-decoration: none;
+    .header a:hover {
+        background: #eeef;
+    }
+
+    .header .router-link-active{
+        border-bottom: solid 1px #165f58;
+        color: #165f58;
     }
 </style>
 
