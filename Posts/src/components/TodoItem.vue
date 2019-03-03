@@ -35,11 +35,16 @@ export default {
 </script>
 
 <style>
+.row {
+    flex-direction: inherit;
+    
+}
 
 p {
     overflow-wrap: break-word;
     padding: auto;
     margin-top: 2px;
+    padding-left: 2rem;
     text-transform: capitalize;
 }
 
