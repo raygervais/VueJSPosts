@@ -6,7 +6,11 @@
         <div class="column column-10">
             <button 
                 @click="markComplete"
-                class="button-outline button-small mark">&#10004;</button>
+                class="button-outline button-small mark">
+                <div v-if="!todo.completed">
+                    &#10004;
+                </div>
+            </button>
         </div>
         
         <div class="column column-80">
@@ -68,7 +72,7 @@ p {
     background: #69A2B0;
     transition: all 750ms;
     font-weight: bolder;
-        border-top-right-radius: 3rem;
+    border-top-right-radius: 3rem;
     border-bottom-right-radius: 3rem;
 }
 

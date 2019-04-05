@@ -1,7 +1,10 @@
 <template>
   <div id="app" class="about container">
     <h2>About</h2>
-    <p>This is the TodoList app V2.0.0. It is part of TraversyMedia VueJS Crash Course 2019</p>
+    <p>
+      This application is the end result of Brad Traversey's <a href="https://www.youtube.com/watch?v=Wy9q22isx3U">VueJS 2019 Crash Course!</a><br />
+      From there, I added the minimalist CSS framework Milligram, along with my own styling and functionality. 
+    </p>
     <br />
     <h3>Technologies Used</h3>
     <table>
@@ -19,7 +22,7 @@
           <td>{{tech.Name}}</td>
           <td>{{tech.Domain}}</td>
           <td>
-              <a :href="'//' + tech.Source">
+              <a :href="'' + tech.Source">
                 {{tech.Source}}
               </a>
           </td>
@@ -36,12 +39,16 @@ export default {
     return {
       technologies: [{
         Name: 'VueJS',
-        Domain: 'Front-end JS Framework',
+        Domain: 'Front-End JS Framework',
         Source: 'https://github.com/vuejs/vue'
       }, {
         Name: 'Milligram',
         Domain: 'Minimalist CSS Framework',
         Source: 'https://milligram.io/'
+      }, {
+        Name: 'Netlify',
+        Domain: 'Continous Deployment and Hosting',
+        Source: 'https://netlify.com/'
       }]
     }
   }
@@ -55,6 +62,20 @@ export default {
 
   tbody tr td:first-child {
     padding-left: 1rem;
+  }
+
+  p {
+    padding-left: 0;
+    text-transform: initial;
+  }
+
+  a { 
+    font-weight: 700;
+    color: #69A2B0;
+  }
+
+  a:hover {
+    color: rgb(92, 141, 153);
   }
 </style>
 

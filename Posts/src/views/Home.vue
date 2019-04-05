@@ -13,6 +13,7 @@ import Todos from '@/components/Todos';
 import AddTodo from '@/components/AddTodo';
 import uuid from 'uuid';
 import axios from 'axios';
+import state from '@/state';
 
 export default {
   name: 'Home',
@@ -50,7 +51,7 @@ export default {
     axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
       .then(res => this.todos = res.data)
       .catch(err => console.error(err));
-  }
+  } 
 }
 
 </script>
